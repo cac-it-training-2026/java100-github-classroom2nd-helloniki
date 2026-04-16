@@ -74,7 +74,7 @@ public class Explorer {
 	public static void main(String[] args) throws IOException {
 
 		System.out.println("隊長：");
-		System.out.println("ワニ3匹発見！\n");
+		System.out.println("ワニ3匹発見！");
 		System.out.println("グーワニかチョキワニかパーワニのどれかです。\n");
 
 		int alligator = 0;
@@ -83,10 +83,54 @@ public class Explorer {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
 
+		int rock_alligator = 1;
+		int sisor_alligator = 2;
+		int paper_alligator = 3;
 
+		while (i < 3) {
+			i++;
+			int random_alligator = (int) (Math.random() * 10 % 3) + 1;
+			System.out.println("隊長：");
+			System.out.println("どの手を出して通り抜けますか");
+			System.out.println("（グー… 1 : チョキ… 2 : パー… 3）>");
+			String rsp = br.readLine();
+			int num_rsp = Integer.parseInt(rsp);
+
+			if (random_alligator == 1) {
+				if (num_rsp != 2) {
+					System.out.println("隊長：");
+					System.out.println("相手はグーワニでした。");
+					System.out.println(i + "匹目通り抜け成功！\n");
+
+				} else {
+					i = 5;
+				}
+
+			}
+
+			if (random_alligator == 2) {
+				if (num_rsp != 3) {
+					System.out.println("隊長：");
+					System.out.println("相手はチョキワニでした。");
+					System.out.println(i + "匹目通り抜け成功！\n");
+				} else {
+					i = 5;
+				}
+			}
+
+			if (random_alligator == 3) {
+				if (num_rsp != 1) {
+					System.out.println("隊長：");
+					System.out.println("相手はパーワニでした。");
+					System.out.println(i + "匹目通り抜け成功！\n");
+				} else {
+					i = 5;
+				}
+			}
+
+		}
 		if (i == 3) {
 			System.out.println("隊長：");
 			System.out.println("川を渡り切りました。");
