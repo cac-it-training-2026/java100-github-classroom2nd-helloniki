@@ -32,26 +32,41 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに配列の宣言を記述する
-
+		int[] find_five = new int[5];
+		int min = 1;
+		int max = 5;
 
 		int intputNum = 0;
 		boolean loopFlag = false;
 
-
 		//ここに重複チェックおよび値の代入処理を記述する
+		find_five[0] = (int) (Math.random() * (max - min + 1)) + min;
 
+		for (int i = 1; i < find_five.length; i++) {
+			intputNum = (int) (Math.random() * (max - min + 1)) + min;
 
+			for (int j = 0; j < i; j++) {
+				if (intputNum == find_five[j]) {
+					i--;
+					break;
+				} else {
+					find_five[i] = intputNum;
+				}
+
+			}
+
+		}
+		for (int i : find_five) {
+			System.out.println(find_five[i]);
+		}
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
 
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
-
 		//ここに要素の確認および何袋目かの出力処理を記述する
-
 
 		System.out.println("に入っていました。");
 

@@ -38,8 +38,6 @@
 
 package lesson04.challenge04;
 
-import java.util.Random;
-
 public class WarehouseManager {
 
 	public static void main(String[] args) {
@@ -47,20 +45,14 @@ public class WarehouseManager {
 		//ここに配列の宣言および値の代入処理を記述する（for文）
 
 		int[] find_five = new int[5];
-		Random random = new Random();
-		for (int i = 0; i < 6; i++) {
-			int no_zero = random.nextInt(6);
-			if (no_zero == 0) {
-				continue;
-			}
-			find_five[i] = no_zero;
+		int min = 1;
+		int max = 5;
 
+		for (int i = 0; i < 5; i++) {
+			int randomNumber = (int) (Math.random() * (max - min + 1)) + min;
+			find_five[i] = randomNumber;
 		}
 
-		for (int i = 0; i < find_five.length; i++) {
-			System.out.println(find_five[i]);
-
-		}
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
 
@@ -69,7 +61,23 @@ public class WarehouseManager {
 
 		boolean hitFlag = false;
 
+		for (int i = 0; i < find_five.length; i++) {
+			if (find_five[i] == 5) {
+				hitFlag = true;
+
+			}
+
+		}
+
 		//ここに要素の確認および何袋目かの出力処理を記述する
+
+		for (int i = 0; i < find_five.length; i++) {
+			if (find_five[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+
+			}
+
+		}
 
 		if (hitFlag) {
 			System.out.println("に入っていました。");
