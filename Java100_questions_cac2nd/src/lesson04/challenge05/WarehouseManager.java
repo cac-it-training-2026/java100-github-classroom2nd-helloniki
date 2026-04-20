@@ -57,6 +57,7 @@ public class WarehouseManager {
 			}
 
 		}
+		//ここでdo文を使うとfor文のiをわざわざ1から始める必要がないし1番目の配列をわざわざ外に出す必要もない。。後判定、前判定の違いが理解てきてない。用勉強
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
