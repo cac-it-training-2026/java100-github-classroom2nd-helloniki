@@ -66,12 +66,30 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに必要な配列の宣言を記述する。
-
-
+		int[] ArrayC = new int[5];
+		int[] ArrayD = new int[5];
+		int[] ArrayE = new int[5];
+		int[][] arrays = { ArrayC, ArrayD, ArrayE };
+		int[] row = new int[15];
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
 
+		for (int[] array : arrays) {
+			for (int i = 0; i < array.length; i++) {
+				array[i] = (int) (Math.random() * 10) + 1;
+
+			}
+		}
+
+		for (int[] array : arrays) {
+			for (int i = 0; i < array.length; i++) {
+				array[i] = (int) (Math.random() * 10) + 1;
+
+				if ((int) (Math.random() * 100) < 25) {
+					array[i] = 0;
+				}
+			}
+		}
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送の件、お願いします。\n");
@@ -81,48 +99,73 @@ public class WarehouseManager {
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
-
+		for (int i : ArrayC) {
+			System.out.print(i + ",");
+		}
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
-
+		for (int i : ArrayD) {
+			System.out.print(i + ",");
+		}
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
-
+		for (int i : ArrayE) {
+			System.out.print(i + ",");
+		}
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに詰め替え処理を記述する
+		int index = 0;
+		for (int[] array : arrays) {
+			for (int i = 0; i < array.length; i++) {
+				row[index] = array[i];
+				index++;
+			}
+		}
 
+		int insertPos = 0;
 
+		for (int i = 0; i < row.length; i++) {
+			if (row[i] != 0) {
+				row[insertPos] = row[i];
+				insertPos++;
+			}
+		}
+
+		for (int i = insertPos; i < row.length; i++) {
+			row[i] = 0;
+		}
+		index = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 5; j++) {
+				arrays[i][j] = row[index];
+				index++;
+			}
+		}
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
-
+		for (int i : ArrayC) {
+			System.out.print(i + ",");
+		}
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
-
+		for (int i : ArrayD) {
+			System.out.print(i + ",");
+		}
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		for (int i : ArrayE) {
+			System.out.print(i + ",");
+		}
 
 		System.out.println("\n\nになりました。\n");
 
