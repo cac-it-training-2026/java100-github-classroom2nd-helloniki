@@ -34,48 +34,67 @@ package lesson07.challenge08;
 
 class Samurai {
 
-    protected String name;
+	protected String name;
 
-    void fight() {
-        System.out.println("戦うよ～。");
-    }
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
-    void work() {
-        System.out.println("何かして働くよ～");
-    }
+	boolean equal(String domain1, String doman2) {
+		return true;
+	}
 
 }
 
-
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+	protected String domain;
 
+	public Retainer(String name, String domain) {
+		this.name = name;
+		this.domain = domain;
+	}
+
+	boolean equal(String domain1, String doman2) {
+		if (domain1.equals(doman2)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("○△□藩の藩士を二つ作ります。\n");
+	public static void main(String[] args) {
+		System.out.println("○△□藩の藩士を二つ作ります。\n");
 
+		//ここに適切な処理を記述
+		Retainer retainer1 = new Retainer("テスト太郎", "○△□");
+		System.out.println(" 拙者は" + retainer1.domain + "藩士," + retainer1.name + "ともうす。");
+		Retainer retainer2 = new Retainer("テスト次郎", "○△□");
+		System.out.println(" 拙者は" + retainer2.domain + "藩士," + retainer2.name + "ともうす。");
 
-        //ここに適切な処理を記述
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
 
+		//ここに適切な処理を記述
+		if (retainer1.equal(retainer1.domain, retainer2.domain)) {
+			System.out.println("【同じ藩に所属しています】");
+		}
+		System.out.println("\n○△×藩の藩士を一つ作ります。\n");
 
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
+		//ここに適切な処理を記述
+		Retainer retainer3 = new Retainer("テスト次郎", "○△×");
+		System.out.println(" 拙者は" + retainer3.domain + "藩士," + retainer3.name + "ともうす。");
 
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
 
-        //ここに適切な処理を記述
+		//ここに適切な処理を記述
+		if (retainer1.equal(retainer1.domain, retainer3.domain)) {
+			System.out.println("【同じ藩に所属しています】");
+		} else {
+			System.out.println("【同じ藩に所属していません】");
+		}
 
-
-        System.out.println("\n○△×藩の藩士を一つ作ります。\n");
-
-
-        //ここに適切な処理を記述
-
-
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }

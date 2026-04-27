@@ -19,30 +19,40 @@
 
 package lesson07.challenge15;
 
-
 //ここにIChiefTreasurerインターフェースを記述
+interface IChiefTreasurer {
 
+}
 
 //ここにICelebrityインターフェースを記述
+interface ICelebrity {
 
+}
 
 //ここにIChiefRetainerインターフェースを記述
+interface IChiefRetainer extends IChiefTreasurer, ICelebrity {
+	void stay() {
+		
+	}
 
+}
 
 //ここにSamuraiクラスを記述
+class Samurai {
 
+}
 
 //ここにRetainerクラスを記述
+class Retainer {
 
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("藩士1：");
+	public static void main(String[] args) {
+		System.out.println("藩士1：");
 
+		//ここに適切な処理を記述;
 
-        //ここに適切な処理を記述;
-
-
-    }
+	}
 }
