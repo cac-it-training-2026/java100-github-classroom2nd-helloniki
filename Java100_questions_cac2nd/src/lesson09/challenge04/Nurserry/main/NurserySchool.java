@@ -29,9 +29,6 @@
 
 package lesson09.challenge04.Nurserry.main;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import lesson09.challenge04.Nurserry.Exception.CriticalConditionException;
 import lesson09.challenge04.Nurserry.logic.Nurse;
 import lesson09.challenge04.Nurserry.logic.NurserySchoolChild;
@@ -58,16 +55,13 @@ public class NurserySchool {
 
 		//ここに適切な処理を記述
 
-		Map<Nurse, NurserySchoolChild> safe = new HashMap<Nurse, NurserySchoolChild>();
-		safe.put(nurse1, child1);
-		safe.put(nurse2, child2);
-		safe.put(nurse3, child3);
-
 		try {
-
+			nurse1.takeTemperature(child1);
+			nurse2.takeTemperature(child2);
+			nurse3.takeTemperature(child3);
 		} catch (CriticalConditionException e) {
-			// TODO: handle exception
+			System.out.println("すぐに病院に行ってください。");
 		}
-
 	}
+
 }
