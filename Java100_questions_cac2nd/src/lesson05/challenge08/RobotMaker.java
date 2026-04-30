@@ -63,51 +63,114 @@ import java.io.InputStreamReader;
 //メソッド名：makeEggDishes(引数int flourNum, int sugarNum, int eggNum, int butterNum、
 //戻り値String、作成できるメニューを戻り値として返す。また、作成できるメニューが無い場合はnull値を返す)
 
+class Robot {
+
+	int water;
+	String manu;
+
+	void pumpWater() {
+		System.out.println("「水を" + water + "リットル出します」");
+
+	}
+
+	void setWater(int water) {
+		this.water = water;
+	}
+
+	void randomWater() {
+		water = (int) (Math.random() * 9) + 1;
+
+	}
+
+	int getWater() {
+
+		return water;
+	}
+
+	int omlet = 0;
+	boolean loopFlag = true;
+
+	String makeEggDishes(int flourNum, int sugarNum, int eggNum, int butterNum) {
+
+		if (flourNum >= 170 && sugarNum >= 50 && eggNum >= 1 && butterNum >= 80) {
+			manu = "クッキー";
+		} else if ((flourNum < 170 || sugarNum < 50) && eggNum >= 2 && butterNum >= 5) {
+			manu = "オムレツ";
+		} else {
+			manu = "何も作れません。";
+		}
+
+		return manu;
+
+	}
+
+	void makeOmlet(int eggNum, int butterNum) {
+
+		do {
+			eggNum -= 2;
+			butterNum -= 5;
+
+			if (eggNum >= 0 && butterNum >= 0) {
+				omlet++;
+			} else {
+				loopFlag = false;
+			}
+		} while (loopFlag);
+
+		System.out.println(omlet + "人分のオムレツを作成しました。");
+
+	}
+
+}
+
 public class RobotMaker {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("Rさん：");
-        System.out.println("もうちょっと高度な調理機能が欲しいですね。\n");
-        System.out.println("G博士：");
-        System.out.println("では材料の分量に応じて作るメニューを変える機能を入れてみようかの。\n");
-        System.out.println("Rさん：");
-        System.out.println("そんなことが出来るんですか！\n");
-        System.out.println("G博士：");
-        System.out.println("出来るとも。小麦粉170g、砂糖50g、卵1個、バター80gがそろえばクッキーを作る。\n");
-        System.out.println("G博士：");
-        System.out.println("クッキーが出来ない場合で、卵2個、バター5gがそろえばオムレツを作る。\n");
-        System.out.println("G博士：");
-        System.out.println("卵のみの場合はゆで卵を作る。\n");
-        System.out.println("G博士：");
-        System.out.println("それ以外の場合は何も作らないようにするんじゃ。\n");
-        System.out.println("Rさん：");
-        System.out.println("それは凄そうですね。完成をお待ちしています。\n");
-        System.out.println("G博士：");
-        System.out.println("......出来たぞ！早速動かしてみよう。\n");
+		System.out.println("Rさん：");
+		System.out.println("もうちょっと高度な調理機能が欲しいですね。\n");
+		System.out.println("G博士：");
+		System.out.println("では材料の分量に応じて作るメニューを変える機能を入れてみようかの。\n");
+		System.out.println("Rさん：");
+		System.out.println("そんなことが出来るんですか！\n");
+		System.out.println("G博士：");
+		System.out.println("出来るとも。小麦粉170g、砂糖50g、卵1個、バター80gがそろえばクッキーを作る。\n");
+		System.out.println("G博士：");
+		System.out.println("クッキーが出来ない場合で、卵2個、バター5gがそろえばオムレツを作る。\n");
+		System.out.println("G博士：");
+		System.out.println("卵のみの場合はゆで卵を作る。\n");
+		System.out.println("G博士：");
+		System.out.println("それ以外の場合は何も作らないようにするんじゃ。\n");
+		System.out.println("Rさん：");
+		System.out.println("それは凄そうですね。完成をお待ちしています。\n");
+		System.out.println("G博士：");
+		System.out.println("......出来たぞ！早速動かしてみよう。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("小麦粉の量を入力してください（グラム）＞");
-        String flourNumStr = br.readLine();
-        int flourNum = Integer.parseInt(flourNumStr);
+		System.out.print("小麦粉の量を入力してください（グラム）＞");
+		String flourNumStr = br.readLine();
+		int flourNum = Integer.parseInt(flourNumStr);
 
-        System.out.print("\n砂糖の量を入力してください（グラム）＞");
-        String sugarNumStr = br.readLine();
-        int sugarNum = Integer.parseInt(sugarNumStr);
+		System.out.print("\n砂糖の量を入力してください（グラム）＞");
+		String sugarNumStr = br.readLine();
+		int sugarNum = Integer.parseInt(sugarNumStr);
 
-        System.out.print("\n卵の個数を入力してください＞");
-        String eggNumStr = br.readLine();
-        int eggNum = Integer.parseInt(eggNumStr);
+		System.out.print("\n卵の個数を入力してください＞");
+		String eggNumStr = br.readLine();
+		int eggNum = Integer.parseInt(eggNumStr);
 
-        System.out.print("\nバターの量を入力してください（グラム）＞");
-        String butterNumStr = br.readLine();
-        int butterNum = Integer.parseInt(butterNumStr);
+		System.out.print("\nバターの量を入力してください（グラム）＞");
+		String butterNumStr = br.readLine();
+		int butterNum = Integer.parseInt(butterNumStr);
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //makeEggDishesを実行する。
-        //標準出力でメニューを表示する。
-    }
+		//ここでRobotクラスのインスタンスを作り、
+		//（インスタンス名はrobot）
+		//makeEggDishesを実行する。
+		//標準出力でメニューを表示する。
+		Robot robot = new Robot();
+		robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
+		System.out.println(robot.manu);
+	}
 
 }

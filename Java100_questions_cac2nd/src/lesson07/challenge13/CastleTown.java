@@ -21,33 +21,48 @@
 
 package lesson07.challenge13;
 
-
 //ここにICelebrityインターフェースを記述
+abstract interface ICelebrity {
+	String str1 = "茶道を嗜むよ～。";
+	String str2 = "塾を開くよ～。";
 
+	abstract void learn();
+
+}
 
 //ここにSamuraiクラスを記述
+abstract class Samurai {
 
+}
 
 //ここにRetainerクラスを記述
-
+class Retainer implements ICelebrity {
+	public void learn() {
+		System.out.println(str1);
+	}
+}
 
 //ここにRoninクラスを記述
-
+class Ronin implements ICelebrity {
+	public void learn() {
+		System.out.println(str2);
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("藩士1：");
+	public static void main(String[] args) {
+		System.out.println("藩士1：");
 
+		//ここに適切な処理を記述
+		Retainer Retainer = new Retainer();
+		Retainer.learn();
 
-        //ここに適切な処理を記述
+		System.out.println("\n浪人1：");
 
+		//ここに適切な処理を記述
+		Ronin Ronin = new Ronin();
+		Ronin.learn();
 
-        System.out.println("\n浪人1：");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }

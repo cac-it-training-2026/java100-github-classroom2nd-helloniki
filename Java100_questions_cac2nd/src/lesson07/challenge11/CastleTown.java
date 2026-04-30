@@ -23,37 +23,61 @@
 
 package lesson07.challenge11;
 
+import java.util.ArrayList;
+import java.util.List;
 
 //ここにSamuraiクラスを記述
 
+abstract class Samurai {
+
+}
 
 //ここにRetainerクラスを記述
-
+class Retainer extends Samurai {
+}
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
 
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("5人の侍を配列に詰めます。\n");
+	public static void main(String[] args) {
+		System.out.println("5人の侍を配列に詰めます。\n");
 
+		//ここに適切な処理を記述
+		List<Samurai> samurais = new ArrayList<>();
 
-        //ここに適切な処理を記述
+		for (int i = 0; i < 5; i++) {
+			int input = (int) (Math.random() * 10) % 2;
+			Retainer retainer = new Retainer();
+			Ronin ronin = new Ronin();
 
+			if (input == 0) {
+				samurais.add(retainer);
+			} else {
+				samurais.add(ronin);
+			}
+		}
 
-        System.out.println("詰め終わりました。\n");
-        System.out.println("それぞれの人数を表示してみます。\n");
+		System.out.println("詰め終わりました。\n");
+		System.out.println("それぞれの人数を表示してみます。\n");
 
+		int retainerCount = 0;
+		int roninCount = 0;
 
-        int retainerCount = 0;
-        int roninCount = 0;
+		//ここに適切な処理を記述
 
+		for (Samurai samurai : samurais) {
+			if (samurai instanceof Retainer) {
+				retainerCount++;
+			} else {
+				roninCount++;
+			}
+		}
 
-        //ここに適切な処理を記述
-
-
-        System.out.println("藩士：" + retainerCount + "人");
-        System.out.println("\n浪人：" + roninCount + "人");
-    }
+		System.out.println("藩士：" + retainerCount + "人");
+		System.out.println("\n浪人：" + roninCount + "人");
+	}
 }

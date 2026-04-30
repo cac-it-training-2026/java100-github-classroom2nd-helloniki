@@ -29,42 +29,73 @@
 
 package lesson07.challenge09;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Samurai {
 
-    protected String name;
+	protected String name;
 
-    void fight() {
-        System.out.println("戦うよ～。");
-    }
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
-    void work() {
-        System.out.println("何かして働くよ～");
-    }
+	void work() {
+		System.out.println("何かして働くよ～");
+	}
 
 }
 
-
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+	boolean Flag;
 
+	public Retainer(int input) {
+		if (input == 0) {
+			Flag = true;
+		} else {
+			Flag = false;
+		} // TODO 自動生成されたコンストラクター・スタブ
+	}
+
+}
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
 
+	public void getClass(Samurai samurai) {
+		System.out.println(samurai);
+	}
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("5人の侍を配列に詰めます。\n");
+	public static void main(String[] args) {
+		System.out.println("5人の侍を配列に詰めます。\n");
 
+		//ここに適切な処理を記述
+		List<Samurai> samurais = new ArrayList<>();
 
-        //ここに適切な処理を記述
+		for (int i = 0; i < 5; i++) {
+			int input = (int) (Math.random() * 10) % 2;
+			Retainer retainer = new Retainer(input);
+			Ronin ronin = new Ronin();
 
+			if (retainer.Flag) {
+				samurais.add(retainer);
+			} else {
+				samurais.add(ronin);
+			}
+		}
 
-        System.out.println("詰め終わりました。\n");
-        System.out.println("それぞれ表示してみます。\n");
+		System.out.println("詰め終わりました。\n");
+		System.out.println("それぞれ表示してみます。\n");
 
+		//ここに適切な処理を記述
+		Ronin ronin = new Ronin();
+		for (Samurai samurai : samurais) {
+			ronin.getClass(samurai);
+		}
 
-        //ここに適切な処理を記述
-
-
-    }
+	}
 }

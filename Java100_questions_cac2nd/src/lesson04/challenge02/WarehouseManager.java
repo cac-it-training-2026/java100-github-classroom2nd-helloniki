@@ -94,24 +94,24 @@ public class WarehouseManager {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
-
-
 		//ここに入力処理を記述する。
-
+		String str_answer = br.readLine();
+		int answer_deta = Integer.parseInt(str_answer);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
-
-
 		//ここに入力処理を記述する。
-
+		str_answer = br.readLine();
+		int answer_num = Integer.parseInt(str_answer);
 
 		boolean errFlag = false;
+		if (answer_deta >= 1 && answer_deta <= 3 && answer_num >= 1 && answer_num <= 3) {
+			errFlag = true;
 
+		}
 
 		//ここに入力値の範囲チェック処理を記述する。
 
-
-		if (!errFlag) {
+		if (errFlag) {
 			System.out.println("\nZ先輩：");
 			System.out.println("中に入れる値はおまかせという事でよろしいですね。");
 			System.out.println("ご注文を承りました。\n");
@@ -122,14 +122,35 @@ public class WarehouseManager {
 			System.out.println("Yさん：");
 			System.out.println("はい、作成させていただきます。\n");
 
-			char[] charArray = null;
-			String[] strArray = null;
-			int[] intArray = null;
+			char[] charArray = new char[answer_num];
+			String[] strArray = new String[answer_num];
+			int[] intArray = new int[answer_num];
 
+			char[] MycharArray = { 'a', 'b', 'c' };
+			String[] MystrArray = { "abc", "def", "ghi" };
+			int[] MyintArray = { 1, 2, 3 };
 
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
 
+			switch (answer_deta) {
+			case 1:
+				for (int i = 0; i < answer_num; i++) {
+					charArray[i] = MycharArray[i];
+				}
+				break;
+			case 2:
+				for (int i = 0; i < answer_num; i++) {
+					strArray[i] = MystrArray[i];
+				}
+				break;
+			case 3:
+				for (int i = 0; i < answer_num; i++) {
+					intArray[i] = MyintArray[i];
+				}
+				break;
+
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +160,22 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
+			switch (answer_deta) {
+			case 1:
+				System.out.print(charArray[(answer_num - 1)]);
 
+				break;
+
+			case 2:
+				System.out.print(strArray[(answer_num - 1)]);
+
+				break;
+			case 3:
+				System.out.print(intArray[(answer_num - 1)]);
+
+				break;
+			}
 
 			System.out.println("です。\n");
 
